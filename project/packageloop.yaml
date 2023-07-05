@@ -1,0 +1,19 @@
+- name: Install necessary packages
+  hosts: DNS
+  become: true
+  tasks:
+    - name: Install required packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - bind-utils
+        - epel-release
+        - ntp
+        - man
+        - man-pages
+        - mlocate
+        - sysstat
+        - vim
+        - htop
+        - net-tools
